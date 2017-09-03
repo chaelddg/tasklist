@@ -17,10 +17,9 @@
           <Row>
             <Col span="24">
               <ul class="task-list">
-                <li><Checkbox size="large" v-model="single"><span class="task-text">Apply iVue for Front End</span></Checkbox></li>
-                <li><Checkbox v-model="single"><span class="task-text">Do the routing Components</span></Checkbox></li>
-                <li><Checkbox v-model="single"><span class="task-text">Configure Nginx</span></Checkbox></li>
-                <li><Checkbox v-model="single"><span class="task-text">Wire up to the Back End</span></Checkbox></li>
+                <li v-for="(task, index) in tasklist" :key="index"><Checkbox size="large" v-model="task.checked">
+                  <span :class="{ 'task-checked': task.checked }"  class="task-text">{{ task.text }}</span></Checkbox>
+                </li>
               </ul>
             </Col>
           </Row>
@@ -35,7 +34,12 @@
     data() {
       return {
         tasktitle: '',
-        single: false,
+        tasklist: [
+          { text: 'Apply iVue for front end', checked: false },
+          { text: 'Do the routing components', checked: true },
+          { text: 'Configure Nginx', checked: false },
+          { text: 'Wire up to the back end', checked: true },
+        ],
       };
     },
   };
@@ -50,6 +54,9 @@
   }
   .task-list li {
     margin-bottom: 10px;
+  }
+  .task-checked {
+    text-decoration; line-through;
   }
   .task-text {
    padding-left: 10px;
