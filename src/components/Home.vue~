@@ -5,26 +5,26 @@
       <Menu :theme="theme" active-name="1">
         <MenuGroup title="Filters">
           <MenuItem name="1">
-            <Icon type="clipboard"></Icon>
+            <Icon type="ios-folder-outline"></Icon>
             All Tasks
           </MenuItem>
           <MenuItem name="2">
-            <Icon type="checkmark-circled"></Icon>
+            <Icon type="ios-checkmark-outline"></Icon>
             Done
           </MenuItem>
           <MenuItem name="3">
-            <Icon type="more"></Icon>
+            <Icon type="ios-list-outline"></Icon>
             Remaining Tasks
           </MenuItem>
         </MenuGroup>
         <MenuGroup>
           <MenuItem name="4">
-            <Icon type="checkmark-round"></Icon>
+            <Icon type="ios-checkmark-empty"></Icon>
             Save
           </MenuItem>
           <MenuItem name="5">
-            <Icon type="close-round"></Icon>
-            Cancel
+            <Icon size="24" type="ios-close-empty"></Icon>
+            <span>Cancel</span>
           </MenuItem>
         </MenuGroup>
       </Menu>

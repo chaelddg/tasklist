@@ -5,15 +5,15 @@
       <Menu :theme="theme" active-name="1">
         <MenuGroup title="Filters">
           <MenuItem name="1">
-            <Icon type="clipboard"></Icon>
+            <Icon type="ios-folder-outline"></Icon>
             All Tasks
           </MenuItem>
           <MenuItem name="2">
-            <Icon type="checkmark-circled"></Icon>
+             <Icon type="ios-checkmark-outline"></Icon>
             Done
           </MenuItem>
           <MenuItem name="3">
-            <Icon type="document-text"></Icon>
+            <Icon type="ios-list-outline"></Icon>
             Remaining Tasks
           </MenuItem>
         </MenuGroup>
