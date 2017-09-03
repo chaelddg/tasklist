@@ -1,0 +1,11 @@
+import types from './mutation_types';
+
+function addTask(state, data) {
+  state.push(data);
+}
+
+export default {
+  [types.ADD_TASK](state, data) {
+    addTask(state, data);
+  },
+};

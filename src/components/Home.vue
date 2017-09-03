@@ -1,6 +1,5 @@
 <template id="home-template">
   <Row>
-    
     <Col span="6">
       <Menu :theme="theme" active-name="1">
         <MenuGroup title="Filters">
@@ -17,7 +16,7 @@
             Remaining Tasks
           </MenuItem>
         </MenuGroup>
-        <MenuGroup>
+        <MenuGroup title="Actions">
           <MenuItem name="4">
             <Icon type="checkmark-round"></Icon>
             Save
@@ -36,10 +35,10 @@
           <br>       
           <Row>
             <Col span="12">
-              <Input class="task-title-input" v-model="tasktitle" placeholder="Task Item"></Input>
+              <Input class="task-title-input" v-model="tasktitle" @on-enter="addTask" :autofocus="true" placeholder="Task Item"></Input>
             </Col>
             <Col span="4" offset="1">
-              <Button type="ghost">Add Task</Button>
+              <Button type="ghost" @click="addTask">Add Task</Button>
             </Col>
           </Row>
           <br>
@@ -61,18 +60,30 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
+
+  import store from '../vuex/store';
+
   export default {
+    store,
+    computed: mapGetters({
+      tasklist: 'getTasklist',
+    }),
     data() {
       return {
         theme: 'light',
         tasktitle: '',
-        tasklist: [
-          { text: 'Apply iVue for front end', checked: false },
-          { text: 'Do the routing components', checked: true },
-          { text: 'Configure Nginx', checked: false },
-          { text: 'Wire up to the back end', checked: true },
-        ],
       };
+    },
+    methods: {
+      addTask() {
+        const text = this.tasktitle.trim();
+
+        if (text) {
+          this.tasktitle = '';
+          this.$store.dispatch('addTask', { text, checked: false });
+        }
+      },
     },
   };
 </script>
