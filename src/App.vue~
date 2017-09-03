@@ -2,13 +2,17 @@
   <div id="app">
     <Menu mode="horizontal" :theme="theme1" active-name="1">
       <MenuItem name="1">
-        <Icon type="ios-paper"></Icon>
-        Home
+        <a href="/">
+          <Icon type="ios-paper"></Icon>
+          Home
+        </a>
       </MenuItem>
       <MenuItem name="2">
-        <Icon type="ios-gear"></Icon>
-        Settings
-      <MenuItem>
+        <a href="/settings">
+         <Icon type="ios-gear"></Icon>
+          Settings
+        </a>
+      </MenuItem>
     </Menu>
     <router-view></router-view>
   </div>
