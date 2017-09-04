@@ -1,4 +1,4 @@
-# tasklist - (VueJS 2, iView)
+# tasklist - (VueJS 2, Vuex, iView)
 
 > A Vue.js project
 
