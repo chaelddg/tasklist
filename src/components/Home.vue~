@@ -1,17 +1,17 @@
 <template id="home-template">
   <Row>
     <Col span="6">
-      <Menu :theme="theme" active-name="1">
+      <Menu :theme="theme" active-name="1"i @on-select="handleFilter">
         <MenuGroup title="Filters">
-          <MenuItem name="1">
+          <MenuItem name="all">
             <Icon type="ios-folder-outline"></Icon>
             All Tasks
           </MenuItem>
-          <MenuItem name="2">
+          <MenuItem name="done">
              <Icon type="ios-checkmark-outline"></Icon>
             Done
           </MenuItem>
-          <MenuItem name="3">
+          <MenuItem name="remaining"> 
             <Icon type="ios-list-outline"></Icon>
             Remaining Tasks
           </MenuItem>
@@ -35,7 +35,7 @@
           <br>       
           <Row>
             <Col span="12">
-              <Input class="task-title-input" v-model="tasktitle" v-on:keyup.enter="addTask" :autofocus="true" placeholder="Task Item"></Input>
+              <Input class="task-title-input" v-model="tasktitle" @on-enter="addTask" :autofocus="true" placeholder="Task Item"></Input>
             </Col>
             <Col span="4" offset="1">
               <Button type="ghost" @click="addTask">Add Task</Button>
@@ -78,10 +78,16 @@
     methods: {
       addTask() {
         const text = this.tasktitle.trim();
-
         if (text) {
           this.tasktitle = '';
           this.$store.dispatch('addTask', { text, checked: false });
+        }
+      },
+      handleFilter(filter) {
+        if (filter === 'done') {
+          this.tasklist = this.tasklist.filter(task => task.checked);
+        } else if (filter === 'remaining') {
+          this.tasklist = this.tasklist.filter(task => !task.checked);
         }
       },
     },

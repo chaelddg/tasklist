@@ -9,11 +9,11 @@ Vue.use(Vuex);
 const state = {
   tasklist: [
     {
-      text: 'use iview for front end components', 
+      text: 'use iview for front end components',
       checked: false,
     },
     {
-      text: 'do the components routing', 
+      text: 'do the components routing',
       checked: true,
     },
     {
@@ -21,7 +21,7 @@ const state = {
       checked: false,
     },
     {
-      text: 'wire up to the back end', 
+      text: 'wire up to the back end',
       checked: true,
     },
   ],

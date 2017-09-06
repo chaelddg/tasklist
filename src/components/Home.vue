@@ -1,17 +1,17 @@
 <template id="home-template">
   <Row>
     <Col span="6">
-      <Menu :theme="theme" active-name="1">
+      <Menu :theme="theme" active-name="1"i @on-select="handleFilter">
         <MenuGroup title="Filters">
-          <MenuItem name="1">
+          <MenuItem name="all">
             <Icon type="ios-folder-outline"></Icon>
             All Tasks
           </MenuItem>
-          <MenuItem name="2">
+          <MenuItem name="done">
              <Icon type="ios-checkmark-outline"></Icon>
             Done
           </MenuItem>
-          <MenuItem name="3">
+          <MenuItem name="remaining"> 
             <Icon type="ios-list-outline"></Icon>
             Remaining Tasks
           </MenuItem>
@@ -78,11 +78,13 @@
     methods: {
       addTask() {
         const text = this.tasktitle.trim();
-
         if (text) {
           this.tasktitle = '';
           this.$store.dispatch('addTask', { text, checked: false });
         }
+      },
+      handleFilter(filter) {
+        this.$store.dispatch('setFilter', filter);
       },
     },
   };

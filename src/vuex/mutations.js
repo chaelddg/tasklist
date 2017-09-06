@@ -1,11 +1,19 @@
+/* eslint no-param-reassign: ["error", { "props": false }] */
 import types from './mutation_types';
 
 function addTask(state, data) {
   state.tasklist.push(data);
 }
 
+function setFilter(state, data) {
+  state.filter = data;
+}
+
 export default {
   [types.ADD_TASK](state, data) {
     addTask(state, data);
+  },
+  [types.SET_FILTER](state, data) {
+    setFilter(state, data);
   },
 };

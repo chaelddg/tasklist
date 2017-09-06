@@ -7,6 +7,7 @@ import mutations from './mutations';
 Vue.use(Vuex);
 
 const state = {
+  filter: '',
   tasklist: [
     {
       text: 'use iview for front end components',
